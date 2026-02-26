@@ -19,3 +19,6 @@ A aplicação deve atender aos seguintes requisitos:
 - Campo de entrada (**input**) para digitação dos valores;
 - Cálculo de **porcentagem (%)**;
 - Botão `=` para exibir o resultado final.
+
+## 🎨 Protótipo
+![Protótipo da aplicação](image.png)
