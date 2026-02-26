@@ -1,13 +1,21 @@
-# Calculadora
+# 🧮 Calculadora
 
-#Requisitos:
-	- O valor inicial é 0;
-	- Botão com números de 1 - 9;
-	- Botão de apagar tudo (ca);
-	- Botão de apagar um valor (c);
-	- Botão de operadores '+, -, * ,/ ';
-	- Operação com valores decimais;
-	- Operação com valores inteiros;
-	- Campo para a digitação dos valores (input);
-	- Calculo de '%';
-	- Botão '=' para mostrar o resultado.
+## 📋 Requisitos do Projeto
+
+A aplicação deve atender aos seguintes requisitos:
+
+- O valor inicial deve ser **0**;
+- Botões numéricos de **1 a 9**;
+- Botão para **apagar tudo** (`CA`);
+- Botão para **apagar um único valor** (`C`);
+- Botões de operadores:
+  - `+` (adição)
+  - `-` (subtração)
+  - `*` (multiplicação)
+  - `/` (divisão)
+- Realizar operações com:
+  - Valores **decimais**
+  - Valores **inteiros**
+- Campo de entrada (**input**) para digitação dos valores;
+- Cálculo de **porcentagem (%)**;
+- Botão `=` para exibir o resultado final.
