@@ -1,36 +1,79 @@
 import { Button } from "@react-navigation/elements";
 import { useState } from "react";
 import { TouchableOpacity,StyleSheet,View,Text} from "react-native";
-import CalculaButtons from "../components/calculaButtons";
 
 export default function RootLayout() { 
+const [display     , setDisplay]     = useState('0');
+const [firstNumber , setFirstNumber] = useState();
+const [opButton    , setOpButton]    = useState();
+
+// -> Puxar a logica das funções aqui
+const pressNumber = (number : string) => {
+  if (display == '0') {
+    setDisplay(number.toString());
+  } else {
+    setDisplay(display + number.toString());
+  }
+};
+
+const pressOp = (op : string) => {
+  setFirstNumber(parseFloat(display));
+  setOpButton(op);
+  setDisplay('0');
+};
+
+const equalPress = () => {
+  const secondNum = parseFloat(display);
+  let result = 0;
+
+  switch (op) {
+    case '+': result = firstNumber + secondNum; break;
+    case '-': result = firstNumber - secondNum; break;
+    case '*': result = firstNumber * secondNum; break;
+    case '/': result = firstNumber / secondNum; break;
+  }
+
+  setDisplay(result.toString());
+  setFirstNumber();
+  setOpButton();
+
+};
+
+const pressClear = () => {
+  setDisplay('0');
+  setFirstNumber();
+  setOpButton();
+};
+
 
   return (
-    <View>
-      <View style={styles.resultado}>
-        <Text style={{fontSize: 20, margin: 10}}>2+2 = 5</Text> {/* parte do input do resultado */}
-      </View>
-      <View style={styles.botao}> {/* parte dos botoes */}
-        <CalculaButtons />
-      </View>   
+    <View style={styles.container}>
+       <View style={styles.display}>
+       </View>
+
+       <View style={styles.buttons}>
+        <TouchableOpacity onPress={() => pressClear('X')} >
+            <Text>X</Text>
+          </TouchableOpacity>
+       </View>
     </View>
   );
 }
 
 
 const styles = StyleSheet.create({
-  resultado:{
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    width: '100%',
-    height: 300,
-    backgroundColor: '#f5f5f5'
+    container: {
+      flex: 1
+  },
+  
+  display: {
+    flex: 1,
+    backgroundColor: 'white'
   },
 
-  botao:{
-    width: '100%',
-    paddingHorizontal: 12,
-    paddingBottom: 20,
+  buttons: {
+    flex: 1,
+    backgroundColor: 'pink'
   },
 
-})
+});
